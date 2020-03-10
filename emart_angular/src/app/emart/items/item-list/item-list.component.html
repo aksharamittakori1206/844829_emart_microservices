@@ -1,0 +1,51 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-lg-4 my-2" *ngFor="let item of allItems">
+                    <div class="card">
+                        <div class="media-container">
+                            <img class="card-img" [src]="item.itemImage" width="70px" height="250px"
+                                [alt]="item.itemUrl">
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6 class="card-title"><b> {{ item.itemName }}</b></h6>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-right font-weight-bolder">Price: {{ item.itemPrice }}</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="card-text"> {{ item.itemDescription }}</p>
+                                </div>
+                                <div class="col-6 text-center ">
+                                    <div class="row ">
+                                        <div class="col-12 align-right my-2">
+                                            <p class="card-text"> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8 align-right">
+                                    <button type="button" class="btn btn-dark "
+                                        (click)="displayItemDetails(item.itemId)">
+                                        <i class="material-icons align-bottom">description</i> ViewDetails </button>
+                                </div>
+                                <div class="col-4 align-left">
+                                    <button type="button" class="btn btn-warning " (click)="addToCart(item)">
+                                        <i class="material-icons align-bottom">shopping_cart</i>Add </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

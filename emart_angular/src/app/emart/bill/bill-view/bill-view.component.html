@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <div class="row mt-2">
+                <div class="col">
+                    <h1> Bill</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5>eMart Services</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="float-left">
+                        Contact Us : emart@gmail.com
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="float-right">
+                        Buyer Name : {{ currentBuyer.buyerUsername }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="float-left">
+                        Date : {{ todayDate | date:'dd/MM/yyyy'}}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="float-right">
+                        Buyer Id : {{ currentBuyer.buyerId }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="table-responsive mt-2">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th> ID</th>
+                        <th>Particulars</th>
+                        <th> Quantity</th>
+                        <th>Rate</th>
+                        <th> Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of  cartItems">
+                        <td>{{item.itemId}}</td>
+                        <td>{{item.itemName}}</td>
+                        <td>1</td>
+                        <td> {{item.itemPrice}}</td>
+                        <td> {{item.itemPrice}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <h5>Amount:</h5>
+                        </td>
+                        <td>Rs.{{ amount }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" class="btn btn-success ml-5 w-75" (click)="addBill()">Pay amount
+        </button>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="container mt-3">
+    <div *ngIf="showBill">
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let bill of bills">
+                    <td>
+                        <button type="button" class="btn btn-secondary card-width w-100" data-toggle="collapse"
+                            attr.data-target="#demo{{bill.billId}} ">
+                            <div class="row bg-secondar text-white">
+                                <span class="col-3"> {{bill.billId}} </span>
+                                <span class="col-5"> Date: {{bill.billDate | date:'dd/MM/yyyy'}}</span>
+                                <span class="col-4"> Rs.{{bill.billAmount}}</span>
+                            </div>
+                        </button>
+
+                        <div id="demo{{bill.billId}}" class="collapse">
+                            <div classs="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <h3>Bill</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h3>eMart Services</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        contact us:eMart@gmail.com
+                                    </div>
+                                    <div class="col">
+                                        Buyer Name:{{currentBuyer.buyerUsername}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        Date:{{bill.billDate | date:'dd/MM/yyyy'}}
+                                    </div>
+                                    <div class="col">
+                                        Buyer ID:{{currentBuyer.buyerId}}
+                                    </div>
+                                </div>
+                                <div class="table-responsive m-5">
+                                    <table class="table table-striped card-width ">
+                                        <table class="table card-width">
+                                            <thead>
+                                                <tr>
+                                                    <th>Item ID</th>
+                                                    <th>Particulars</th>
+                                                    <th> Quantity</th>
+                                                    <th>Rate</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of  bill.allBillDetails">
+                                                    <td>{{item.itemPojo.itemId}}</td>
+                                                    <td>{{item.itemPojo.itemName}}</td>
+                                                    <td>1</td>
+                                                    <td> {{item.itemPojo.itemPrice}}</td>
+                                                    <td>Rs{{item.itemPojo.itemPrice}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td> </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <h5>Amount</h5>
+                                                    </td>
+                                                    <td>Rs{{bill.billAmount}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="!showBill">
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <span class="display-4 text-danger">Purchase History</span>
+            </div>
+        </div>
+    </div>
+</div>
